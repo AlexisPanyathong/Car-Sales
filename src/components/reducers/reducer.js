@@ -16,14 +16,15 @@ const initialState = {
 }
 
 export const reducer = (state = initialState, action) => {
-    // switch (action.type) {
-    //     case 'BUY_ITEM':
-    //         return {
-    //             ...state,
+    switch (action.type) {
+        case 'REMOVE_FEATURE':
+            return {
+                ...state,
+                car: state.car.features.filter(item => !item.removed)
+            };
 
-    //         }
-    // }
+        default:
+        return state;
+    }
 
-    // default;
-    return state;
 }

@@ -4,6 +4,7 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import { dispatch } from 'rxjs/internal/observable/pairs';
 
 const App = () => {
   const state = {
@@ -25,6 +26,7 @@ const App = () => {
 
   const removeFeature = item => {
     // dispatch an action here to remove an item
+    dispatch({ type: 'REMOVE_FEATURE', payload: item })
   };
 
   const buyItem = item => {
@@ -34,11 +36,11 @@ const App = () => {
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={state.car} />
+        <Header  />
         <AddedFeatures car={state.car} />
       </div>
       <div className="box">
-        <AdditionalFeatures store={state.store} />
+        <AdditionalFeatures />
         <Total car={state.car} additionalPrice={state.additionalPrice} />
       </div>
     </div>
